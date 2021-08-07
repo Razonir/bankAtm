@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.sql.*;
 import java.awt.EventQueue;
 
 import javax.swing.ImageIcon;
@@ -9,6 +10,8 @@ import java.awt.Window.Type;
 import java.awt.Color;
 import javax.swing.JSplitPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Window;
 
@@ -25,21 +28,47 @@ public class Main extends JFrame {
 	private JPanel contentPane;
 	private JTextField acountNumber;
 	private JTextField password;
-	
+		
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		Connect();
 
 		Main frame = new Main();
 		frame.setVisible(true);
 			
 	}
-
+	
+	/**
+	 * connect the data
+	 */
+	
+	static Connection con;
+	PreparedStatement pst;
+	ResultSet rs;
+	private JTextField idNumber;
+	private JTextField txtAmount;
+	
+	public static void Connect() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost/atm","root","");
+		}
+		catch (ClassNotFoundException ex) {
+			
+		}
+		catch (SQLException ex) {
+			
+		}
+	}
+	
 	/**
 	 * Create the frame.
 	 */
 	public Main() {
+		Connect();
+
 		setType(Type.UTILITY);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -126,10 +155,34 @@ public class Main extends JFrame {
 		JButton enterB = new JButton("ENTER");
 		enterB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(password.getText().equals("admin") && acountNumber.getText().equals("admin")) {
-					AdminMain adminSwitch = new AdminMain();
-					adminSwitch.setVisible(true);
-					dispose();
+
+				String acountId = acountNumber.getText();
+				String passwordText = password.getText();
+				
+				try {
+					Statement stm = con.createStatement();
+					String sql = "select * from users where id=? and password=?";
+					PreparedStatement pst = con.prepareStatement(sql);
+					pst.setString(1, acountId);
+					pst.setString(2, passwordText);
+					ResultSet rs = pst.executeQuery();
+					if(rs.next()) {
+						Welcome welcome = new Welcome(acountId);
+						welcome.show();
+						dispose();
+					}
+					else {
+						if(password.getText().equals("admin") && acountNumber.getText().equals("admin")) {
+							AdminMain adminSwitch = new AdminMain();
+							adminSwitch.setVisible(true);
+							dispose();
+						}else {
+						JOptionPane.showMessageDialog(null, "Acount numebr or password donot matched");
+						}
+					}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 		});
