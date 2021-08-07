@@ -5,6 +5,10 @@ import java.awt.Font;
 import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,26 +17,66 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import java.awt.Button;
 
+import net.proteanit.sql.DbUtils;
+
+import java.awt.Button;
+import javax.swing.JTable;
+import javax.swing.JScrollPane;
+import java.sql.*;
 public class AdminMain extends JFrame {
 
 	private JPanel contentPane;
-
+	private JTable table;
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		
+		Connect();
 		AdminMain frame = new AdminMain();
 		frame.setVisible(true);
-
 	}
 
+	
+
+	/**
+	 * connect the data
+	 */
+	
+	static Connection con;
+	PreparedStatement pst;
+	ResultSet rs;
+	
+	public static void Connect() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost/atm","root","");
+		}
+		catch (ClassNotFoundException ex) {
+			
+		}
+		catch (SQLException ex) {
+			
+		}
+	}
+	
+	public void table_load() {
+		try {
+			pst = con.prepareStatement("select * from users");
+			rs = pst.executeQuery();
+			table.setModel(DbUtils.resultSetToTableModel(rs));
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 	/**
 	 * Create the frame.
 	 */
 	public AdminMain() {
+		Connect();
 		setType(Type.UTILITY);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,6 +103,13 @@ public class AdminMain extends JFrame {
 		logoTitle.setFont(new Font("Tahoma", Font.BOLD, 16));
 		logoTitle.setBounds(52, 11, 391, 32);
 		leftPanel.add(logoTitle);
+		
+		JScrollPane usersData = new JScrollPane();
+		usersData.setBounds(20, 54, 491, 351);
+		leftPanel.add(usersData);
+		table = new JTable();
+		table_load();
+		usersData.setViewportView(table);
 		
 
 		//	right Panel ************************************************

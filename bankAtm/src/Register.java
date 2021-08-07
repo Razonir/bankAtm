@@ -38,7 +38,6 @@ public class Register extends JFrame {
 	 */
 	public static void main(String[] args) {
 		Connect();
-
 		Register frame = new Register();
 		frame.setVisible(true);
 
@@ -70,6 +69,7 @@ public class Register extends JFrame {
 	 * Create the frame.
 	 */
 	public Register() {
+		Connect();
 		setType(Type.UTILITY);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

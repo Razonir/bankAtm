@@ -106,7 +106,7 @@ public class Main extends JFrame {
 		password.addFocusListener(new FocusListener() {
 		    @Override
 		    public void focusGained(FocusEvent e) {
-		        if (password.getText().equals("password")) {
+		        if (password.getText().equals("Password")) {
 		        	password.setText("");
 		        	password.setForeground(Color.BLACK);
 		        }
@@ -115,7 +115,7 @@ public class Main extends JFrame {
 		    public void focusLost(FocusEvent e) {
 		        if (password.getText().isEmpty()) {
 		        	password.setForeground(Color.GRAY);
-		        	password.setText("password");
+		        	password.setText("Password");
 		        }
 		    }
 		    });
