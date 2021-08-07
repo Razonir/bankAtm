@@ -15,9 +15,11 @@ import java.awt.Window;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.ActionEvent;
 import java.awt.Button;
-
+import java.sql.*;
 public class Main extends JFrame {
 
 	private JPanel contentPane;
@@ -31,7 +33,6 @@ public class Main extends JFrame {
 
 		Main frame = new Main();
 		frame.setVisible(true);
-
 			
 	}
 
@@ -66,25 +67,59 @@ public class Main extends JFrame {
 		logoTitle.setBounds(52, 11, 391, 32);
 		leftPanel.add(logoTitle);
 		
-		JLabel firstTitle = new JLabel("Razo Bank");
-		firstTitle.setFont(new Font("Tahoma", Font.BOLD, 16));
+		JLabel firstTitle = new JLabel("To log in to the account");
+		firstTitle.setFont(new Font("Tahoma", Font.BOLD, 21));
 		firstTitle.setBounds(52, 72, 391, 32);
 		leftPanel.add(firstTitle);
 		
-		JLabel secTitle = new JLabel("Razo Bank");
-		secTitle.setFont(new Font("Tahoma", Font.BOLD, 16));
+		JLabel secTitle = new JLabel("Enter the account number and password");
+		secTitle.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		secTitle.setBounds(52, 115, 391, 32);
 		leftPanel.add(secTitle);
 		
-		acountNumber = new JTextField();
+		acountNumber = new JTextField("Acount number");
 		acountNumber.setBounds(52, 209, 335, 40);
+		acountNumber.setForeground(Color.GRAY);
+		acountNumber.addFocusListener(new FocusListener() {
+		    @Override
+		    public void focusGained(FocusEvent e) {
+		        if (acountNumber.getText().equals("Acount number")) {
+		        	acountNumber.setText("");
+		        	acountNumber.setForeground(Color.BLACK);
+		        }
+		    }
+		    @Override
+		    public void focusLost(FocusEvent e) {
+		        if (acountNumber.getText().isEmpty()) {
+		        	acountNumber.setForeground(Color.GRAY);
+		        	acountNumber.setText("Acount number");
+		        }
+		    }
+		    });
 		leftPanel.add(acountNumber);
-		acountNumber.setColumns(10);
-
 		
+
 		password = new JTextField();
-		password.setColumns(10);
+		password.setText("Password");
 		password.setBounds(52, 278, 335, 40);
+		password.setForeground(Color.GRAY);
+		password.addFocusListener(new FocusListener() {
+		    @Override
+		    public void focusGained(FocusEvent e) {
+		        if (password.getText().equals("password")) {
+		        	password.setText("");
+		        	password.setForeground(Color.BLACK);
+		        }
+		    }
+		    @Override
+		    public void focusLost(FocusEvent e) {
+		        if (password.getText().isEmpty()) {
+		        	password.setForeground(Color.GRAY);
+		        	password.setText("password");
+		        }
+		    }
+		    });
+		leftPanel.add(acountNumber);
 		leftPanel.add(password);
 		
 
