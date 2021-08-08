@@ -33,15 +33,6 @@ public class Register extends JFrame {
 	private JTextField password;
 	private JTextField passwordC;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		Connect();
-		Register frame = new Register();
-		frame.setVisible(true);
-
-	}
 
 	/**
 	 * Create the data

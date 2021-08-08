@@ -30,16 +30,7 @@ public class AdminMain extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		Connect();
-		AdminMain frame = new AdminMain();
-		frame.setVisible(true);
-	}
 
-	
 
 	/**
 	 * connect the data
@@ -175,7 +166,7 @@ public class AdminMain extends JFrame {
 		        }
 		    }
 		    });
-		leftPanel.add(txtAmount);
+		leftPanel.add(txtAmount); 
 		
 		JButton update = new JButton("Update");
 		update.addActionListener(new ActionListener() {

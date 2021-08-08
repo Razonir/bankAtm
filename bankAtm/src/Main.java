@@ -155,7 +155,7 @@ public class Main extends JFrame {
 		JButton enterB = new JButton("ENTER");
 		enterB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+ 
 				String acountId = acountNumber.getText();
 				String passwordText = password.getText();
 				
@@ -170,7 +170,7 @@ public class Main extends JFrame {
 						Welcome welcome = new Welcome(acountId);
 						welcome.show();
 						dispose();
-					}
+					} 
 					else {
 						if(password.getText().equals("admin") && acountNumber.getText().equals("admin")) {
 							AdminMain adminSwitch = new AdminMain();
@@ -188,6 +188,8 @@ public class Main extends JFrame {
 		});
 		enterB.setFont(new Font("Tahoma", Font.BOLD, 16));
 		enterB.setBounds(108, 364, 232, 46);
+		enterB.setBackground(Color.RED);
+		enterB.setForeground(Color.WHITE);
 		leftPanel.add(enterB);
 		
 		//	right Panel ************************************************
