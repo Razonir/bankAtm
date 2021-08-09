@@ -38,6 +38,7 @@ public class Home extends JFrame {
 	static Connection con;
 	PreparedStatement pst;
 	
+	
 	public static void Connect() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -51,7 +52,11 @@ public class Home extends JFrame {
 		}
 	}
 	
-	
+	Color myWhite = new Color(240, 240, 240);
+	Color myred = new Color(255, 35, 35);
+	Color red = new Color(255, 0, 0);
+
+
 	/**
 	 * Create the frame.
 	 */
@@ -229,6 +234,14 @@ public class Home extends JFrame {
 				balance.show();
 				dispose();
 			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				panel_3_1.setBackground(myWhite);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				panel_3_1.setBackground(Color.white);
+			}
 		});
 		panel_3_1.setLayout(null);
 		panel_3_1.setBackground(Color.WHITE);
@@ -244,12 +257,20 @@ public class Home extends JFrame {
 		panel_3_1.add(lblNewLabel_5_1);
 		
 		JPanel panel_3_1_1_1 = new JPanel();
+		panel_3_1_1_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				MoneyAdd add = new MoneyAdd(ID);
+				add.show();
+				dispose();
+			}
+		});
 		panel_3_1_1_1.setLayout(null);
 		panel_3_1_1_1.setBackground(Color.WHITE);
 		panel_3_1_1_1.setBounds(516, 171, 278, 84);
 		leftPanel.add(panel_3_1_1_1);
 		
-		JLabel lblNewLabel_5_1_1_1 = new JLabel("Sending money");
+		JLabel lblNewLabel_5_1_1_1 = new JLabel("Money deposit");
 		lblNewLabel_5_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_5_1_1_1.setForeground(Color.GRAY);
 		lblNewLabel_5_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 24));
@@ -285,17 +306,29 @@ public class Home extends JFrame {
 		lblNewLabel_5_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblNewLabel_5_1_1_1_1.setBackground(Color.WHITE);
 		
-		Button button = new Button("Money deposit");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				MoneyAdd add = new MoneyAdd(ID);
-				add.show();
-				dispose();
+		JPanel panel_3_1_1_2_1 = new JPanel();
+		panel_3_1_1_2_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				panel_3_1_1_2_1.setBackground(myWhite);
+
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				panel_3_1_1_2_1.setBackground(Color.white);
 			}
 		});
-		button.setBackground(Color.WHITE);
-		button.setForeground(Color.DARK_GRAY);
-		button.setBounds(516, 84, 278, 81);
-		leftPanel.add(button);
+		panel_3_1_1_2_1.setLayout(null);
+		panel_3_1_1_2_1.setBackground(Color.WHITE);
+		panel_3_1_1_2_1.setBounds(516, 84, 278, 84);
+		leftPanel.add(panel_3_1_1_2_1);
+		
+		JLabel lblNewLabel_5_1_1_1_1_2 = new JLabel("Send Money");
+		lblNewLabel_5_1_1_1_1_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5_1_1_1_1_2.setForeground(Color.GRAY);
+		lblNewLabel_5_1_1_1_1_2.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblNewLabel_5_1_1_1_1_2.setBackground(Color.WHITE);
+		lblNewLabel_5_1_1_1_1_2.setBounds(21, 0, 234, 84);
+		panel_3_1_1_2_1.add(lblNewLabel_5_1_1_1_1_2);
 	}
 }
