@@ -152,6 +152,28 @@ public class Pulling extends JFrame {
 			i=0;
 			fiveS++;
 		}
+		
+		// small<=300
+		
+		if(hundredS<=3 && hundredS>0) {
+			hundredS-=1;
+			fiftyS=1;
+			twentyS+=1;
+			tenS+=1;
+			fiveS+=2;
+			twoS+=4;
+			oneS+=2;
+			
+		}
+		if(fiftyS<=3 && fiftyS>0 &&hundredS==0) {
+			fiftyS-=1;
+			twentyS+=1;
+			tenS+=1;
+			fiveS+=2;
+			twoS+=4;
+			oneS+=2;
+			
+		}
 		//	left Panel ************************************************
 
 		JPanel leftPanel = new JPanel();

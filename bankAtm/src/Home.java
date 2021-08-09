@@ -150,6 +150,14 @@ public class Home extends JFrame {
 		panel_1.add(lblNewLabel_2_1);
 		
 		JPanel panel_2 = new JPanel();
+		panel_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				PullingOther pullingO = new PullingOther(ID);
+				pullingO.show();
+				dispose();
+			}
+		});
 		panel_2.setLayout(null);
 		panel_2.setBackground(Color.RED);
 		panel_2.setBounds(271, 214, 209, 119);
@@ -235,20 +243,6 @@ public class Home extends JFrame {
 		lblNewLabel_5_1.setBounds(72, 0, 293, 84);
 		panel_3_1.add(lblNewLabel_5_1);
 		
-		JPanel panel_3_1_1 = new JPanel();
-		panel_3_1_1.setLayout(null);
-		panel_3_1_1.setBackground(Color.WHITE);
-		panel_3_1_1.setBounds(516, 84, 278, 84);
-		leftPanel.add(panel_3_1_1);
-		
-		JLabel lblNewLabel_5_1_1 = new JLabel("Money deposit");
-		lblNewLabel_5_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_5_1_1.setForeground(Color.GRAY);
-		lblNewLabel_5_1_1.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lblNewLabel_5_1_1.setBackground(Color.WHITE);
-		lblNewLabel_5_1_1.setBounds(20, 0, 234, 84);
-		panel_3_1_1.add(lblNewLabel_5_1_1);
-		
 		JPanel panel_3_1_1_1 = new JPanel();
 		panel_3_1_1_1.setLayout(null);
 		panel_3_1_1_1.setBackground(Color.WHITE);
@@ -290,5 +284,18 @@ public class Home extends JFrame {
 		lblNewLabel_5_1_1_1_1.setForeground(Color.GRAY);
 		lblNewLabel_5_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblNewLabel_5_1_1_1_1.setBackground(Color.WHITE);
+		
+		Button button = new Button("Money deposit");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MoneyAdd add = new MoneyAdd(ID);
+				add.show();
+				dispose();
+			}
+		});
+		button.setBackground(Color.WHITE);
+		button.setForeground(Color.DARK_GRAY);
+		button.setBounds(516, 84, 278, 81);
+		leftPanel.add(button);
 	}
 }
