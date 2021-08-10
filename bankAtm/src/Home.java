@@ -104,17 +104,17 @@ public class Home extends JFrame {
 		leftPanel.add(pullfirst);
 		pullfirst.setLayout(null);
 		
-		JLabel lblNewLabel_2 = new JLabel("$");
-		lblNewLabel_2.setForeground(Color.WHITE);
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 29));
-		lblNewLabel_2.setBounds(109, 55, 18, 42);
-		pullfirst.add(lblNewLabel_2);
+		JLabel dollarfirst = new JLabel("$");
+		dollarfirst.setForeground(Color.WHITE);
+		dollarfirst.setFont(new Font("Tahoma", Font.BOLD, 29));
+		dollarfirst.setBounds(109, 55, 18, 42);
+		pullfirst.add(dollarfirst);
 		
-		JLabel lblNewLabel = new JLabel("Pulling");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setBounds(29, 7, 64, 30);
-		pullfirst.add(lblNewLabel);
+		JLabel pullTitleF = new JLabel("Pulling");
+		pullTitleF.setFont(new Font("Tahoma", Font.BOLD, 18));
+		pullTitleF.setForeground(Color.WHITE);
+		pullTitleF.setBounds(29, 7, 64, 30);
+		pullfirst.add(pullTitleF);
 		
 		JLabel lblNewLabel_1 = new JLabel("50");
 		lblNewLabel_1.setForeground(Color.WHITE);
@@ -122,8 +122,8 @@ public class Home extends JFrame {
 		lblNewLabel_1.setBounds(43, 39, 64, 53);
 		pullfirst.add(lblNewLabel_1);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.addMouseListener(new MouseAdapter() {
+		JPanel pullsec = new JPanel();
+		pullsec.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				Pulling pulling = new Pulling(ID,"100");
@@ -131,31 +131,31 @@ public class Home extends JFrame {
 				dispose();
 			}
 		});
-		panel_1.setLayout(null);
-		panel_1.setBackground(Color.RED);
-		panel_1.setBounds(271, 84, 209, 119);
-		leftPanel.add(panel_1);
+		pullsec.setLayout(null);
+		pullsec.setBackground(Color.RED);
+		pullsec.setBounds(271, 84, 209, 119);
+		leftPanel.add(pullsec);
 		
 		JLabel lblNewLabel_3 = new JLabel("Pulling");
 		lblNewLabel_3.setForeground(Color.WHITE);
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_3.setBounds(29, 7, 147, 30);
-		panel_1.add(lblNewLabel_3);
+		pullsec.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("100");
 		lblNewLabel_1_1.setForeground(Color.WHITE);
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 50));
 		lblNewLabel_1_1.setBounds(39, 39, 114, 52);
-		panel_1.add(lblNewLabel_1_1);
+		pullsec.add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("$");
 		lblNewLabel_2_1.setForeground(Color.WHITE);
 		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 29));
 		lblNewLabel_2_1.setBounds(140, 48, 39, 42);
-		panel_1.add(lblNewLabel_2_1);
+		pullsec.add(lblNewLabel_2_1);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.addMouseListener(new MouseAdapter() {
+		JPanel pullother = new JPanel();
+		pullother.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				PullingOther pullingO = new PullingOther(ID);
@@ -163,25 +163,25 @@ public class Home extends JFrame {
 				dispose();
 			}
 		});
-		panel_2.setLayout(null);
-		panel_2.setBackground(Color.RED);
-		panel_2.setBounds(271, 214, 209, 119);
-		leftPanel.add(panel_2);
+		pullother.setLayout(null);
+		pullother.setBackground(Color.RED);
+		pullother.setBounds(271, 214, 209, 119);
+		leftPanel.add(pullother);
 		
-		JLabel lblNewLabel_4 = new JLabel("Pulling");
-		lblNewLabel_4.setForeground(Color.WHITE);
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel_4.setBounds(29, 7, 147, 30);
-		panel_2.add(lblNewLabel_4);
+		JLabel PullingText = new JLabel("Pulling");
+		PullingText.setForeground(Color.WHITE);
+		PullingText.setFont(new Font("Tahoma", Font.BOLD, 18));
+		PullingText.setBounds(29, 7, 147, 30);
+		pullother.add(PullingText);
 		
-		JLabel lblNewLabel_1_1_2 = new JLabel("Other");
-		lblNewLabel_1_1_2.setForeground(Color.WHITE);
-		lblNewLabel_1_1_2.setFont(new Font("Tahoma", Font.BOLD, 50));
-		lblNewLabel_1_1_2.setBounds(29, 33, 186, 52);
-		panel_2.add(lblNewLabel_1_1_2);
+		JLabel pullingTextOther = new JLabel("Other");
+		pullingTextOther.setForeground(Color.WHITE);
+		pullingTextOther.setFont(new Font("Tahoma", Font.BOLD, 50));
+		pullingTextOther.setBounds(29, 33, 186, 52);
+		pullother.add(pullingTextOther);
 		
-		JPanel panel_3 = new JPanel();
-		panel_3.addMouseListener(new MouseAdapter() {
+		JPanel pullthr = new JPanel();
+		pullthr.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				Pulling pulling = new Pulling(ID,"200");
@@ -189,28 +189,28 @@ public class Home extends JFrame {
 				dispose();
 			}
 		});
-		panel_3.setLayout(null);
-		panel_3.setBackground(Color.RED);
-		panel_3.setBounds(52, 214, 209, 119);
-		leftPanel.add(panel_3);
+		pullthr.setLayout(null);
+		pullthr.setBackground(Color.RED);
+		pullthr.setBounds(52, 214, 209, 119);
+		leftPanel.add(pullthr);
 		
-		JLabel lblNewLabel_5 = new JLabel("Pulling");
-		lblNewLabel_5.setForeground(Color.WHITE);
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel_5.setBounds(29, 7, 147, 30);
-		panel_3.add(lblNewLabel_5);
+		JLabel pullTextThr = new JLabel("Pulling");
+		pullTextThr.setForeground(Color.WHITE);
+		pullTextThr.setFont(new Font("Tahoma", Font.BOLD, 18));
+		pullTextThr.setBounds(29, 7, 147, 30);
+		pullthr.add(pullTextThr);
 		
-		JLabel lblNewLabel_1_1_1 = new JLabel("200");
-		lblNewLabel_1_1_1.setForeground(Color.WHITE);
-		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 50));
-		lblNewLabel_1_1_1.setBounds(39, 34, 114, 52);
-		panel_3.add(lblNewLabel_1_1_1);
+		JLabel numberThr = new JLabel("200");
+		numberThr.setForeground(Color.WHITE);
+		numberThr.setFont(new Font("Tahoma", Font.BOLD, 50));
+		numberThr.setBounds(39, 34, 114, 52);
+		pullthr.add(numberThr);
 		
-		JLabel lblNewLabel_2_1_1 = new JLabel("$");
-		lblNewLabel_2_1_1.setForeground(Color.WHITE);
-		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 29));
-		lblNewLabel_2_1_1.setBounds(140, 48, 54, 42);
-		panel_3.add(lblNewLabel_2_1_1);
+		JLabel dollar = new JLabel("$");
+		dollar.setForeground(Color.WHITE);
+		dollar.setFont(new Font("Tahoma", Font.BOLD, 29));
+		dollar.setBounds(140, 48, 54, 42);
+		pullthr.add(dollar);
 		
 		JButton btnNewButton_2 = new JButton("Back");
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -226,8 +226,8 @@ public class Home extends JFrame {
 		btnNewButton_2.setBounds(547, 495, 247, 57);
 		leftPanel.add(btnNewButton_2);
 		
-		JPanel panel_3_1 = new JPanel();
-		panel_3_1.addMouseListener(new MouseAdapter() {
+		JPanel viewB = new JPanel();
+		viewB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				Balance balance = new Balance(ID);
@@ -236,25 +236,25 @@ public class Home extends JFrame {
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				panel_3_1.setBackground(myWhite);
+				viewB.setBackground(myWhite);
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				panel_3_1.setBackground(Color.white);
+				viewB.setBackground(Color.white);
 			}
 		});
-		panel_3_1.setLayout(null);
-		panel_3_1.setBackground(Color.WHITE);
-		panel_3_1.setBounds(52, 344, 430, 84);
-		leftPanel.add(panel_3_1);
+		viewB.setLayout(null);
+		viewB.setBackground(Color.WHITE);
+		viewB.setBounds(52, 344, 430, 84);
+		leftPanel.add(viewB);
 		
-		JLabel lblNewLabel_5_1 = new JLabel("View your balance");
-		lblNewLabel_5_1.setBackground(Color.WHITE);
-		lblNewLabel_5_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_5_1.setForeground(Color.GRAY);
-		lblNewLabel_5_1.setFont(new Font("Tahoma", Font.BOLD, 32));
-		lblNewLabel_5_1.setBounds(72, 0, 293, 84);
-		panel_3_1.add(lblNewLabel_5_1);
+		JLabel viewBText = new JLabel("View your balance");
+		viewBText.setBackground(Color.WHITE);
+		viewBText.setHorizontalAlignment(SwingConstants.CENTER);
+		viewBText.setForeground(Color.GRAY);
+		viewBText.setFont(new Font("Tahoma", Font.BOLD, 32));
+		viewBText.setBounds(72, 0, 293, 84);
+		viewB.add(viewBText);
 		
 		JPanel panel_3_1_1_1 = new JPanel();
 		panel_3_1_1_1.addMouseListener(new MouseAdapter() {

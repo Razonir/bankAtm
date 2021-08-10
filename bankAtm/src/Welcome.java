@@ -63,7 +63,7 @@ public class Welcome extends JFrame {
 
 		JPanel leftPanel = new JPanel();
 		leftPanel.setBackground(Color.LIGHT_GRAY);
-		leftPanel.setBounds(0, 0, 815, 574);
+		leftPanel.setBounds(10, 0, 815, 574);
 		contentPane.add(leftPanel);
 		leftPanel.setLayout(null);
 		
